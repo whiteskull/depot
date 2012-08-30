@@ -4,7 +4,6 @@ class ProductTest < ActiveSupport::TestCase
 
   test "product attributes must not be empty" do
     product = Product.new
-    product.image_url = 'something.like-that'
     assert product.invalid?
     assert product.errors[:title].any?
     assert product.errors[:description].any?
@@ -54,6 +53,5 @@ class ProductTest < ActiveSupport::TestCase
     assert_equal I18n.translate('activerecord.errors.messages.taken'),
                  product.errors[:title].join('; ')
   end
-
 
 end
